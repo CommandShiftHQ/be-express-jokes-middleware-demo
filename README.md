@@ -19,7 +19,7 @@ Should add a new joke to the database and return a `201` status code. This endpo
 
 ## Middleware challenges
 
-The following functionality has not been built into the application. You will need to use middleware to acheive the following:
+The following functionality is implemented on this `with-middleware` branch:
 
 - ALL requests should be logged when received. [Morgan](https://expressjs.com/en/resources/middleware/morgan.html) may be useful for this.
 
