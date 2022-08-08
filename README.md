@@ -23,7 +23,7 @@ The following functionality is implemented on this `with-middleware` branch:
 
 - ALL requests should be logged when received. [Morgan](https://expressjs.com/en/resources/middleware/morgan.html) may be useful for this.
 
-- CORS should be enabled only on the `/` endpoint. This would mean that any other endpoint would not be accessible in the browser.
+- CORS should be enabled only on the `/` endpoint. This would mean that only this endpoint would not be accessible in the browser.
 
 - If a client visits `/hello.html`, they should be served a html file displaying the text "This is an Express Server!"
 
