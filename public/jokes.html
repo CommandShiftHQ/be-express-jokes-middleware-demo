@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+</head>
+
+<body>
+    <h1>Joke:</h1>
+    <button onclick="getData()">Retrieve Random Joke</button>
+    <h2 id="joke">
+
+    </h2>
+</body>
+
+<script>
+    const getData = async () => {
+        let result = await fetch('http: //localhost: 3000/jokes/random')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById("joke").value = data;
+            })
+            .catch(error => console.error(error));
+    }
+</script>
+
+
+
+</html>
