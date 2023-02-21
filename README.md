@@ -6,12 +6,14 @@ This repo contains a demo to go with the [Express Middleware Backend Lecture](ht
 
 `GET /jokes` - Should return an array of all jokes
 
+`GET /randomJoke` - Should return a random joke from the available ones
+
 `POST /jokes` - Accepts the following body:
 
 ```json
 {
-    "name": string,
-    "content": string
+    "name": String,
+    "content": String
 }
 ```
 
@@ -19,7 +21,7 @@ Should add a new joke to the database and return a `201` status code. This endpo
 
 ## Middleware challenges
 
-The following functionality is implemented on this `with-middleware` branch:
+The following functionality has not been built into the application. You will need to use middleware to acheive the following:
 
 - ALL requests should be logged when received. [Morgan](https://expressjs.com/en/resources/middleware/morgan.html) may be useful for this.
 
@@ -46,19 +48,13 @@ npm i
 To set the database up, run the following command to build the docker image defined in the repo:
 
 ```bash
-docker build . -t mcr-codes/express-middleware
-```
-
-**On an M1 Mac** - run the following:
-
-```bash
-docker build -f Dockerfile.m1 . -t mcr-codes/express-middleware
+docker build . -t commanddshift/express-middleware
 ```
 
 To build the image, run:
 
 ```bash
-docker run -d -p 3307:3306 --name express-middleware -e MYSQL_ROOT_PASSWORD=password  mcr-codes/express-middleware
+docker run -d -p 5435:5432 --name express-middleware -e POSTGRES_PASSWORD=password -d commanddshift/express-middleware
 ```
 
 ### Environment variables
@@ -66,12 +62,12 @@ docker run -d -p 3307:3306 --name express-middleware -e MYSQL_ROOT_PASSWORD=pass
 Create a `.env` file in the root of the repo with the following values:
 
 ```properties
+PGUSER=postgres
+PGHOST=localhost
+PGPASSWORD=password
+PGDATABASE=middlewares
+PGPORT=5435
 PORT=3000
-DB_NAME=express-middleware
-DB_USER=user
-DB_PASSWORD=password
-DB_HOST=localhost
-DB_PORT=3307
 ```
 
 This contains credentials to allow a connection to the database.
